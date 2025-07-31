@@ -12,9 +12,9 @@ namespace UpdateCouponYearly
     {
         public void Txt(string ex)
         {
-            //string sourcePath = @"C:\Website\UpdateCouponYearly\Log" + @"\" + DateTime.Now.ToString("yyyy-MM-dd.HH") + "狀態.txt";       //正式
+            string sourcePath = @"C:\Website\UpdateCouponYearly\Log" + @"\" + DateTime.Now.ToString("yyyy-MM-dd.HH") + "狀態.txt";       //正式
             //string sourcePath = @"D:\Website\UpdateCouponYearly\Log\" + DateTime.Now.ToString("yyyy-MM-dd.HH") + "狀態.txt";     //測試
-            string sourcePath = @"E:\POJHIH\Program\UpdateCouponYearly\UpdateCouponYearly\bin\Debug\Log\" + DateTime.Now.ToString("yyyy-MM-dd.HH") + "狀態.txt";    //本地
+            //string sourcePath = @"E:\POJHIH\Program\UpdateCouponYearly\UpdateCouponYearly\bin\Debug\Log\" + DateTime.Now.ToString("yyyy-MM-dd.HH") + "狀態.txt";    //本地
             #region  寫入txt檔
             string txt = "";
             if (File.Exists(sourcePath))
@@ -59,8 +59,8 @@ namespace UpdateCouponYearly
             try
             {
                 commonUtility.Txt("Function: SendMail Start");
-                //string folderPath = $@"C:\Website\UpdateCouponYearly\file\{DateTime.Now.ToString("yyyyMMdd")}"; //正式
-                string folderPath = $@"E:\POJHIH\Website\UpdateCouponYearly\file\{DateTime.Now.ToString("yyyyMMdd")}"; //本地
+                string folderPath = $@"C:\Website\UpdateCouponYearly\file\{DateTime.Now.ToString("yyyyMMdd")}"; //正式
+                //string folderPath = $@"E:\POJHIH\Website\UpdateCouponYearly\file\{DateTime.Now.ToString("yyyyMMdd")}"; //本地
 
                 clsINI ini = new clsINI(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config.ini"));
                 string MailFrom, SmtpClient, Port, RealEMailAddress, RealEMailPassWord;
@@ -143,8 +143,8 @@ namespace UpdateCouponYearly
             CommonUtility commonUtility = new CommonUtility();
             try
             {
-                //string folderPath = @"C:\Website\UpdateCouponYearly\file"; //正式
-                string folderPath = @"E:\POJHIH\Website\UpdateCouponYearly\file"; //本地
+                string folderPath = @"C:\Website\UpdateCouponYearly\file"; //正式
+                //string folderPath = @"E:\POJHIH\Website\UpdateCouponYearly\file"; //本地
                 string destinationFolder = $@"{folderPath}\{DateTime.Now.ToString("yyyyMMdd")}"; // 目標資料夾路徑
                 string[] extensions = { "*年度兌回.xlsx" };// 欲抓取副檔名
 

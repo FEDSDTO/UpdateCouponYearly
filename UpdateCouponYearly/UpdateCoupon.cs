@@ -155,8 +155,8 @@ namespace UpdateCouponYearly
                     sheet2.Column("A").Width += 8;
                     sheet2.Range("A5:F6").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
-                    //workbook.SaveAs(@"C:\Website\UpdateCouponYearly\file\" + _mall + "年度兌回.xlsx");  //正式
-                    workbook.SaveAs(@"E:\POJHIH\Website\UpdateCouponYearly\" + _mall + "年度兌回.xlsx");  //本地
+                    workbook.SaveAs(@"C:\Website\UpdateCouponYearly\file\" + _mall + "年度兌回.xlsx");  //正式
+                    //workbook.SaveAs(@"E:\POJHIH\Website\UpdateCouponYearly\" + _mall + "年度兌回.xlsx");  //本地
                 }
             }
             catch (Exception ex)
