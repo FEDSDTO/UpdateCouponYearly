@@ -146,7 +146,7 @@ namespace UpdateCouponYearly
                 string folderPath = @"C:\Website\UpdateCouponYearly\file"; //正式
                 //string folderPath = @"E:\POJHIH\Website\UpdateCouponYearly\file"; //本地
                 string destinationFolder = $@"{folderPath}\{DateTime.Now.ToString("yyyyMMdd")}"; // 目標資料夾路徑
-                string[] extensions = { "*年度兌回.xlsx" };// 欲抓取副檔名
+                string[] extensions = { "*年度兌回.xlsx", "*兌出-兌回.xlsx" };// 欲抓取副檔名
 
                 // 檢查目標資料夾是否存在，若不存在則建立
                 if (!Directory.Exists(destinationFolder))
