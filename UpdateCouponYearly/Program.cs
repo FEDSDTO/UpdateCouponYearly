@@ -11,20 +11,27 @@ namespace UpdateCouponYearly
     {
         static void Main(string[] args)
         {
-            //每年1月1日
-            if (DateTime.Now.Month == 1 && DateTime.Now.Day == 1)
+            //每月1日
+            if (DateTime.Now.Day == 1)
             {
-                UpdateCoupon.Deferred_SubmitYearly();
+                UpdateCoupon.Deferred_Submit();
                 CommonUtility.MoveFiles();
                 if (ConfigurationManager.AppSettings["SendMail"] == "Y")
                 {
                     CommonUtility.SendMail();
-                } 
+                }
             }
             //人工處裡
             if (ConfigurationManager.AppSettings["DeBUG"] == "Y")
             {
-                UpdateCoupon.Deferred_SubmitYearly();
+                if (ConfigurationManager.AppSettings["DeBugYear"] == "Y")
+                {
+                    UpdateCoupon.Deferred_SubmitYearly();
+                }
+                else
+                {
+                    UpdateCoupon.Deferred_Submit();
+                }
                 CommonUtility.MoveFiles();
             }
         }
