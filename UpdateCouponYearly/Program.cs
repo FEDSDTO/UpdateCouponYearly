@@ -11,16 +11,7 @@ namespace UpdateCouponYearly
     {
         static void Main(string[] args)
         {
-            //每月1日
-            if (DateTime.Now.Day == 1)
-            {
-                UpdateCoupon.Deferred_Submit();
-                CommonUtility.MoveFiles();
-                if (ConfigurationManager.AppSettings["SendMail"] == "Y")
-                {
-                    CommonUtility.SendMail();
-                }
-            }
+
             //人工處裡
             if (ConfigurationManager.AppSettings["DeBUG"] == "Y")
             {
@@ -33,6 +24,23 @@ namespace UpdateCouponYearly
                     UpdateCoupon.Deferred_Submit();
                 }
                 CommonUtility.MoveFiles();
+            }
+            //每月1日
+            else if (DateTime.Now.Day == 1)
+            {
+                if (DateTime.Now.Month == 1)
+                {
+                    UpdateCoupon.Deferred_SubmitYearly();
+                }
+                else
+                {
+                    UpdateCoupon.Deferred_Submit();
+                }
+                CommonUtility.MoveFiles();
+                if (ConfigurationManager.AppSettings["SendMail"] == "Y")
+                {
+                    CommonUtility.SendMail();
+                }
             }
         }
     }
