@@ -195,7 +195,7 @@ namespace UpdateCouponYearly
                     DateTime.TryParseExact(ConfigurationManager.AppSettings["endDate"], "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateE);
                     _eDate = dateE;
                 }
-                DataTable _dt = CouponDeferred_Get(_sDate, _eDate);
+                DataTable _dt = CouponDeferred_Get(_sDate, _eDate.AddDays(1));
                 List<string> _listMall = new List<string>() { "32", "34", "37", "40", "42", "48", "50", "51", "52", "53", "54", "55", "72" };
                 //List<string> _listMall = new List<string>() { "53" };
                 foreach (var _mall in _listMall)
