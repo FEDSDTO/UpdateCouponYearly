@@ -105,15 +105,31 @@ namespace UpdateCouponYearly
                     mail.Attachments.Add(new Attachment(file));
                 }
                 DateTime _before = DateTime.Now.AddYears(-1);
-                //主旨
-                mail.Subject = $"{_before.Year}抵用券年度報表";
-                //是否採用HTML格式
-                mail.IsBodyHtml = true;
-                //信件內容
-                mail.Body = $@"<div>
+                DateTime _now = DateTime.Now;
+                
+                if (DateTime.Now.Month == 1)
+                {
+                    //主旨
+                    mail.Subject = $"{_before.Year}抵用券年度報表";
+                    //信件內容
+                    mail.Body = $@"<div>
                                     <p>附件為</p>
                                     <p>{_before.Year}年度兌回資料</p>
                                </div>";
+                }
+                else
+                {
+                    //主旨
+                    mail.Subject = $"{_now.Year}抵用券年度報表";
+                    //信件內容
+                    mail.Body = $@"<div>
+                                    <p>附件為</p>
+                                    <p>{_now.Year}年 1月 ~ {_now.Month}月年度兌回資料</p>
+                               </div>";
+                }
+                //是否採用HTML格式
+                mail.IsBodyHtml = true;
+
                 //編碼
                 mail.BodyEncoding = Encoding.UTF8;
 
