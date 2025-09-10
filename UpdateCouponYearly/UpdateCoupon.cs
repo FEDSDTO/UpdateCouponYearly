@@ -187,7 +187,7 @@ namespace UpdateCouponYearly
             try
             {
                 DateTime _sDate = new DateTime(DateTime.Now.Year, 1, 1);//年初
-                DateTime _eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);//當月初
+                DateTime _eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);//當月初 //會計報表年度遞延兌回迄日是輸入月底(後端會在+1天) → 月初
                 if (ConfigurationManager.AppSettings["DeBUG"] == "Y")
                 {
                     DateTime.TryParseExact(ConfigurationManager.AppSettings["startDate"], "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateS);
@@ -195,7 +195,7 @@ namespace UpdateCouponYearly
                     DateTime.TryParseExact(ConfigurationManager.AppSettings["endDate"], "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateE);
                     _eDate = dateE;
                 }
-                DataTable _dt = CouponDeferred_Get(_sDate, _eDate.AddDays(1));
+                DataTable _dt = CouponDeferred_Get(_sDate, _eDate);
                 List<string> _listMall = new List<string>() { "32", "34", "37", "40", "42", "48", "50", "51", "52", "53", "54", "55", "72" };
                 //List<string> _listMall = new List<string>() { "53" };
                 foreach (var _mall in _listMall)
