@@ -73,7 +73,7 @@ namespace UpdateCouponYearly
                     sheet.Cell(1, 1).Value = "查詢日期：" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
                     sheet.Cell(2, 1).Value = "查詢人員：系統排程匯出";
                     sheet.Cell(3, 1).Value = "查詢公司：" + _mall;
-                    sheet.Cell(4, 1).Value = $"兌回起訖：{_sDate.ToString("yyyy-MM-dd")}至{_eDate.ToString("yyyy-MM-dd")}";
+                    sheet.Cell(4, 1).Value = $"兌回起訖：{_sDate.ToString("yyyy-MM-dd")}至{_eDate.AddDays(-1).ToString("yyyy-MM-dd")}";
                     sheet.Cell(5, 1).Value = "券年度";
                     sheet.Cell(5, 2).Value = "券代號";
                     sheet.Cell(5, 3).Value = "兌出起始";
@@ -209,7 +209,7 @@ namespace UpdateCouponYearly
                     sheet.Cell(1, 1).Value = "查詢日期：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     sheet.Cell(2, 1).Value = "查詢人員：系統排程匯出";
                     sheet.Cell(3, 1).Value = "查詢公司：" + _mall;
-                    sheet.Cell(4, 1).Value = $"兌回起訖：{_sDate.ToString("yyyy-MM-dd")}至{_eDate.ToString("yyyy-MM-dd")}";
+                    sheet.Cell(4, 1).Value = $"兌回起訖：{_sDate.ToString("yyyy-MM-dd")}至{_eDate.AddDays(-1).ToString("yyyy-MM-dd")}";
                     sheet.Cell(5, 1).Value = "券年度";
                     sheet.Cell(5, 2).Value = "券代號";
                     sheet.Cell(5, 3).Value = "兌出起始";

@@ -105,9 +105,9 @@ namespace UpdateCouponYearly
                     mail.Attachments.Add(new Attachment(file));
                 }
                 DateTime _before = DateTime.Now.AddYears(-1);
-                DateTime _now = DateTime.Now;
+                DateTime _now = DateTime.Now.AddDays(-1);
                 
-                if (DateTime.Now.Month == 1)
+                if (DateTime.Now.Month == 1) // 1/1
                 {
                     //主旨
                     mail.Subject = $"{_before.Year}抵用券年度報表";
@@ -115,6 +115,16 @@ namespace UpdateCouponYearly
                     mail.Body = $@"<div>
                                     <p>附件為</p>
                                     <p>{_before.Year}年度兌回資料</p>
+                               </div>";
+                }
+                else if (DateTime.Now.Month == 2) // 2月只顯示"1月年度兌回資料"
+                {
+                    //主旨
+                    mail.Subject = $"{_now.Year}抵用券年度報表";
+                    //信件內容
+                    mail.Body = $@"<div>
+                                    <p>附件為</p>
+                                    <p>{_now.Year}年 1月年度兌回資料</p>
                                </div>";
                 }
                 else
