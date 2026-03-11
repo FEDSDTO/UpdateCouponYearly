@@ -60,7 +60,7 @@ namespace UpdateCouponYearly
                     _eDate = dateE;
                 }
                 DataTable _dt = CouponDeferred_Get(_sDate, _eDate);
-                List<string> _listMall = new List<string>() { "32", "34", "37", "40", "42", "48", "50", "51", "52", "53", "54", "55", "72" };
+                List<string> _listMall = new List<string>() { "10", "32", "34", "37", "40", "42", "48", "50", "51", "52", "53", "54", "55", "72" };
                 //List<string> _listMall = new List<string>() { "72" };
                 foreach (var _mall in _listMall)
                 {
@@ -196,7 +196,7 @@ namespace UpdateCouponYearly
                     _eDate = dateE;
                 }
                 DataTable _dt = CouponDeferred_Get(_sDate, _eDate);
-                List<string> _listMall = new List<string>() { "32", "34", "37", "40", "42", "48", "50", "51", "52", "53", "54", "55", "72" };
+                List<string> _listMall = new List<string>() { "10","32", "34", "37", "40", "42", "48", "50", "51", "52", "53", "54", "55", "72" };
                 //List<string> _listMall = new List<string>() { "53" };
                 foreach (var _mall in _listMall)
                 {
